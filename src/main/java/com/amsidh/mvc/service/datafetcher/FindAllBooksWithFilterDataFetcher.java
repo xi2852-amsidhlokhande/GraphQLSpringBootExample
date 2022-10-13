@@ -19,6 +19,7 @@ public class FindAllBooksWithFilterDataFetcher implements DataFetcher<List<Book>
         String isn = environment.getArgument("isn");
         String title = environment.getArgument("title");
         String publisher = environment.getArgument("publisher");
-        return bookRepository.findBookByIsnAndTitleAndPublisherAllIgnoringCase(isn, title, publisher).orElseThrow(() -> new RuntimeException(String.format("No book found with given filter isn %s, title %s and publisher %s", isn, title, publisher)));
+        //return bookRepository.findBookByIsnAndTitleAndPublisherAllIgnoringCase(isn, title, publisher).orElseThrow(() -> new RuntimeException(String.format("No book found with given filter isn %s, title %s and publisher %s", isn, title, publisher)));
+        return bookRepository.findBookByIsnAndTitleAndPublisher(isn, title, publisher).orElseThrow(() -> new RuntimeException(String.format("No book found with given filter isn %s, title %s and publisher %s", isn, title, publisher)));
     }
 }

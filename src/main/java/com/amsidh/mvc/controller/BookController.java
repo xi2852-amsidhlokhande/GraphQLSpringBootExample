@@ -1,4 +1,4 @@
-package com.amsidh.mvc.resources;
+package com.amsidh.mvc.controller;
 
 import com.amsidh.mvc.service.GraphQLService;
 import graphql.ExecutionResult;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/rest/books")
-public class BookResource {
+public class BookController {
 
     private final GraphQLService graphQLService;
 
@@ -22,4 +22,6 @@ public class BookResource {
         ExecutionResult executionResult = graphQLService.getGraphQL().execute(query);
         return new ResponseEntity<Object>(executionResult, HttpStatus.OK);
     }
+
+
 }
